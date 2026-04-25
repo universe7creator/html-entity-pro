@@ -1,0 +1,14 @@
+{
+  "name": "html-entity-pro",
+  "version": "1.0.0",
+  "description": "Convert special characters to HTML entities and back. Perfect for web developers and content creators.",
+  "main": "api/process.js",
+  "scripts": {
+    "dev": "node dev-server.js",
+    "vercel-build": "echo 'Build complete'"
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

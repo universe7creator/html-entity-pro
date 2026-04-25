@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Entity Encoder Pro — Convert Special Characters Instantly</title>
+  <meta name="description" content="Professional HTML entity encoder and decoder. Convert special characters to HTML entities and back. Perfect for web developers, content creators, and security professionals.">
+  <meta property="og:title" content="HTML Entity Encoder Pro">
+  <meta property="og:description" content="Convert special characters to HTML entities instantly. WCAG-compliant, secure, and blazing fast.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            primary: '#6366f1',
+            secondary: '#8b5cf6',
+            accent: '#ec4899',
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.8s ease-out',
+            'slide-up': 'slideUp 0.6s ease-out',
+            'pulse-slow': 'pulse 3s infinite',
+            'shimmer': 'shimmer 2s linear infinite',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            slideUp: {
+              '0%': { opacity: '0', transform: 'translateY(30px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            shimmer: {
+              '0%': { backgroundPosition: '-200% 0' },
+              '100%': { backgroundPosition: '200% 0' },
+            },
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    body {
+      background: #0a0a0a;
+      color: #fff;
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #6366f1, #ec4899, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glow {
+      box-shadow: 0 0 40px rgba(99, 102, 241, 0.3);
+    }
+    .demo-area {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+    }
+    textarea::-webkit-scrollbar {
+      width: 8px;
+    }
+    textarea::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 4px;
+    }
+    textarea::-webkit-scrollbar-thumb {
+      background: rgba(99, 102, 241, 0.5);
+      border-radius: 4px;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(99, 102, 241, 0.4);
+    }
+  </style>
+</head>
+<body class="font-sans antialiased overflow-x-hidden">
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 right-0 z-50 glass">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center space-x-2">
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center font-bold text-sm">&amp;</div>
+          <span class="font-semibold text-lg">EntityPro</span>
+        </div>
+        <a href="#demo" class="text-sm text-gray-300 hover:text-white transition">Try Demo</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="relative min-h-screen flex items-center justify-center pt-16 px-4">
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse-slow"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 1.5s;"></div>
+    </div>
+
+    <div class="relative z-10 max-w-5xl mx-auto text-center">
+      <div class="animate-fade-in">
+        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+          HTML Entity<br>
+          <span class="gradient-text">Encoder Pro</span>
+        </h1>
+        <p class="text-xl sm:text-2xl text-gray-400 mb-8 max-w-3xl mx-auto">
+          Convert special characters to HTML entities instantly. Secure, fast, and developer-friendly.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#demo" class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-primary to-secondary rounded-full font-semibold text-lg hover:scale-105 transition glow">
+            Try Free Demo
+          </a>
+          <button id="buyBtn" class="inline-flex items-center justify-center px-8 py-4 glass rounded-full font-semibold text-lg hover:bg-white/5 transition">
+            Get Pro — $9
+          </button>
+        </div>
+      </div>
+
+      <!-- Trust badges -->
+      <div class="mt-16 flex flex-wrap justify-center gap-8 text-gray-500 text-sm animate-slide-up">
+        <span class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+          No data stored
+        </span>
+        <span class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+          Instant conversion
+        </span>
+        <span class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+          API access
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Demo -->
+  <section id="demo" class="py-24 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16 animate-fade-in">
+        <h2 class="text-4xl font-bold mb-4">Try It Live</h2>
+        <p class="text-gray-400 text-lg">No signup required. Paste your text and convert instantly.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-6">
+        <!-- Input -->
+        <div class="glass rounded-2xl p-6 animate-slide-up">
+          <div class="flex justify-between items-center mb-4">
+            <label class="text-sm font-medium text-gray-300">Input Text</label>
+            <div class="flex gap-2">
+              <button onclick="setSample('encode')" class="text-xs px-3 py-1 rounded-full bg-white/5 hover:bg-white/10 transition">Sample</button>
+              <button onclick="clearAll()" class="text-xs px-3 py-1 rounded-full bg-white/5 hover:bg-white/10 transition">Clear</button>
+            </div>
+          </div>
+          <textarea id="input" class="w-full h-64 bg-black/30 rounded-xl p-4 font-mono text-sm text-gray-300 resize-none focus:outline-none focus:ring-2 focus:ring-primary/50 border border-white/10" placeholder="Paste text with special characters: <script>alert('XSS')</script>&#10;&#10;Or: Café &quot;La Vie&quot; <3"></textarea>
+          <div class="flex gap-3 mt-4">
+            <button onclick="encode()" class="flex-1 py-3 bg-gradient-to-r from-primary to-secondary rounded-xl font-semibold hover:opacity-90 transition flex items-center justify-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              Encode to HTML
+            </button>
+            <button onclick="decode()" class="flex-1 py-3 glass rounded-xl font-semibold hover:bg-white/5 transition flex items-center justify-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+              Decode HTML
+            </button>
+          </div>
+        </div>
+
+        <!-- Output -->
+        <div class="glass rounded-2xl p-6 animate-slide-up" style="animation-delay: 0.1s;">
+          <div class="flex justify-between items-center mb-4">
+            <label class="text-sm font-medium text-gray-300">Result</label>
+            <button onclick="copyResult()" id="copyBtn" class="text-xs px-3 py-1 rounded-full bg-white/5 hover:bg-white/10 transition flex items-center gap-1">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+              Copy
+            </button>
+          </div>
+          <textarea id="output" readonly class="w-full h-64 bg-black/30 rounded-xl p-4 font-mono text-sm text-green-400 resize-none border border-white/10" placeholder="Result will appear here..."></textarea>
+          <div class="flex justify-between items-center mt-4 text-sm text-gray-500">
+            <span id="charCount">0 characters</span>
+            <span id="preview" class="text-gray-400"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Reference -->
+      <div class="mt-12 glass rounded-2xl p-6 animate-slide-up" style="animation-delay: 0.2s;">
+        <h3 class="text-lg font-semibold mb-4">Common HTML Entities</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-3">
+          <div class="bg-white/5 rounded-lg p-3 text-center hover:bg-white/10 transition cursor-pointer" onclick="insertChar('&amp;lt;')">
+            <code class="text-primary text-lg">&lt;</code>
+            <div class="text-xs text-gray-500 mt-1">&amp;lt;</div>
+          </div>
+          <div class="bg-white/5 rounded-lg p-3 text-center hover:bg-white/10 transition cursor-pointer" onclick="insertChar('&amp;gt;')">
+            <code class="text-primary text-lg">&gt;</code>
+            <div class="text-xs text-gray-500 mt-1">&amp;gt;</div>
+          </div>
+          <div class="bg-white/5 rounded-lg p-3 text-center hover:bg-white/10 transition cursor-pointer" onclick="insertChar('&amp;amp;')">
+            <code class="text-primary text-lg">&amp;</code>
+            <div class="text-xs text-gray-500 mt-1">&amp;amp;</div>
+          </div>
+          <div class="bg-white/5 rounded-lg p-3 text-center hover:bg-white/10 transition cursor-pointer" onclick="insertChar('&amp;quot;')">
+            <code class="text-primary text-lg">"</code>
+            <div class="text-xs text-gray-500 mt-1">&amp;quot;</div>
+          </div>
+          <div class="bg-white/5 rounded-lg p-3 text-center hover:bg-white/10 transition cursor-pointer" onclick="insertChar('&amp;apos;')">
+            <code class="text-primary text-lg">'</code>
+            <div class="text-xs text-gray-500 mt-1">&amp;apos;</div>
+          </div>
+          <div class="bg-white/5 rounded-lg p-3 text-center hover:bg-white/10 transition cursor-pointer" onclick="insertChar('&amp;nbsp;')">
+            <code class="text-primary text-lg">&nbsp;</code>
+            <div class="text-xs text-gray-500 mt-1">&amp;nbsp;</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="py-24 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4">Everything You Need</h2>
+        <p class="text-gray-400 text-lg">Professional-grade tools for developers and content creators</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="feature-card glass rounded-2xl p-6 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Lightning Fast</h3>
+          <p class="text-gray-400">Instant conversion with zero latency. Process thousands of characters in milliseconds.</p>
+        </div>
+
+        <div class="feature-card glass rounded-2xl p-6 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-secondary to-accent flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Privacy First</h3>
+          <p class="text-gray-400">All processing happens client-side. Your data never leaves your browser.</p>
+        </div>
+
+        <div class="feature-card glass rounded-2xl p-6 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-accent to-primary flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Developer API</h3>
+          <p class="text-gray-400">REST API with simple endpoints. Integrate into your workflow or CI/CD pipeline.</p>
+        </div>
+
+        <div class="feature-card glass rounded-2xl p-6 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/></svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Full Unicode</h3>
+          <p class="text-gray-400">Support for all Unicode characters including emojis, special symbols, and international text.</p>
+        </div>
+
+        <div class="feature-card glass rounded-2xl p-6 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-secondary to-primary flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">XSS Protection</h3>
+          <p class="text-gray-400">Easily sanitize user input for safe rendering in HTML contexts. Prevent cross-site scripting.</p>
+        </div>
+
+        <div class="feature-card glass rounded-2xl p-6 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-accent to-secondary flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/></svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Bulk Processing</h3>
+          <p class="text-gray-400">Pro version supports batch conversion via API. Process multiple files at once.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-24 px-4">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-4xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+
+      <div class="space-y-4">
+        <div class="glass rounded-xl p-6">
+          <h3 class="font-semibold text-lg mb-2">What are HTML entities?</h3>
+          <p class="text-gray-400">HTML entities are special codes used to represent characters that have special meaning in HTML, like &lt; for &lt; and &amp;gt; for &gt;. They're essential for displaying special characters correctly and preventing XSS attacks.</p>
+        </div>
+
+        <div class="glass rounded-xl p-6">
+          <h3 class="font-semibold text-lg mb-2">Is my data secure?</h3>
+          <p class="text-gray-400">Yes! All conversion happens entirely in your browser using JavaScript. Your text is never sent to any server, ensuring complete privacy and security.</p>
+        </div>
+
+        <div class="glass rounded-xl p-6">
+          <h3 class="font-semibold text-lg mb-2">Can I use this for XSS protection?</h3>
+          <p class="text-gray-400">Absolutely. Encoding special characters like &lt; and &gt; to their HTML entity equivalents is a standard XSS prevention technique. This tool makes it easy to sanitize user input.</p>
+        </div>
+
+        <div class="glass rounded-xl p-6">
+          <h3 class="font-semibold text-lg mb-2">What's included in the Pro version?</h3>
+          <p class="text-gray-400">Pro includes REST API access, bulk processing capabilities, priority support, and advanced features like custom entity mapping and file upload support.</p>
+        </div>
+
+        <div class="glass rounded-xl p-6">
+          <h3 class="font-semibold text-lg mb-2">Do you offer refunds?</h3>
+          <p class="text-gray-400">Yes, we offer a 14-day money-back guarantee. If you're not satisfied with the Pro version, contact us for a full refund.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="glass rounded-3xl p-12 glow">
+        <h2 class="text-4xl font-bold mb-4">Ready to Get Started?</h2>
+        <p class="text-xl text-gray-400 mb-8">Upgrade to Pro for API access and bulk processing</p>
+        <button id="buyBtn2" class="inline-flex items-center justify-center px-10 py-5 bg-gradient-to-r from-primary via-secondary to-accent rounded-full font-bold text-xl hover:scale-105 transition">
+          Get Pro Access — $9
+        </button>
+        <p class="mt-4 text-sm text-gray-500">One-time payment. Lifetime access.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 px-4 border-t border-white/10">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="flex items-center space-x-2 mb-4 md:mb-0">
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center font-bold text-sm">&amp;</div>
+          <span class="font-semibold text-lg">EntityPro</span>
+        </div>
+        <div class="flex gap-6 text-sm text-gray-500">
+          <a href="#" class="hover:text-white transition">Privacy</a>
+          <a href="#" class="hover:text-white transition">Terms</a>
+          <a href="https://twitter.com" target="_blank" class="hover:text-white transition">Twitter</a>
+        </div>
+      </div>
+      <div class="mt-8 text-center text-sm text-gray-600">
+        © 2026 HTML Entity Encoder Pro. Built with care for developers.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Checkout URL
+    const CHECKOUT_URL = null; // Will be set after LemonSqueezy setup
+
+    // Buy buttons
+    document.querySelectorAll('#buyBtn, #buyBtn2').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (CHECKOUT_URL) window.open(CHECKOUT_URL, '_blank');
+        else alert('Store coming soon! Contact @OtonomUniverseCreator on Telegram.');
+      });
+    });
+
+    // Encode function
+    function encode() {
+      const input = document.getElementById('input').value;
+      const output = input
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&apos;');
+      document.getElementById('output').value = output;
+      updateStats(output);
+    }
+
+    // Decode function
+    function decode() {
+      const input = document.getElementById('input').value;
+      const output = input
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>')
+        .replace(/&quot;/g, '"')
+        .replace(/&apos;/g, "'")
+        .replace(/&amp;/g, '&');
+      document.getElementById('output').value = output;
+      updateStats(output);
+    }
+
+    // Update character count
+    function updateStats(text) {
+      document.getElementById('charCount').textContent = text.length + ' characters';
+    }
+
+    // Copy result
+    function copyResult() {
+      const output = document.getElementById('output');
+      output.select();
+      document.execCommand('copy');
+      const btn = document.getElementById('copyBtn');
+      const original = btn.innerHTML;
+      btn.innerHTML = '<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Copied!';
+      setTimeout(() => btn.innerHTML = original, 2000);
+    }
+
+    // Clear all
+    function clearAll() {
+      document.getElementById('input').value = '';
+      document.getElementById('output').value = '';
+      updateStats('');
+    }
+
+    // Set sample
+    function setSample(type) {
+      if (type === 'encode') {
+        document.getElementById('input').value = `<script>alert("XSS Test")</script>
+<div class="example">
+  Café "La Vie" & Friends
+</div>`;
+      }
+    }
+
+    // Insert character
+    function insertChar(char) {
+      const input = document.getElementById('input');
+      const start = input.selectionStart;
+      const end = input.selectionEnd;
+      const text = input.value;
+      input.value = text.substring(0, start) + char + text.substring(end);
+      input.focus();
+      input.setSelectionRange(start + char.length, start + char.length);
+    }
+
+    // Auto-update stats
+    document.getElementById('input').addEventListener('input', function() {
+      updateStats(this.value);
+    });
+  </script>
+</body>
+</html>
